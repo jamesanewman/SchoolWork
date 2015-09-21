@@ -78,28 +78,24 @@
         "through",
         "Neolithic"
     ],
-    wordDisplay = document.getElementById( 'display' );
+    wordDisplay = document.getElementById( "display" );
 
     R.forEach( function( word ){
-    
 
-
-        var wrapper = document.createElement( 'div' ),
-            wordView = document.createElement( 'span' ),
-            playBtn = document.createElement( 'span' );
+        var wrapper = document.createElement( "div" ),
+            wordView = document.createElement( "span" ),
+            playBtn = document.createElement( "span" );
 
         console.log("Word -> ", word);
         wordDisplay.appendChild( wrapper );
         wrapper.appendChild( wordView );
         wrapper.appendChild( playBtn );
 
-        wrapper.classList.add( 'spelling' );
-
-        wordView.classList.add( 'word-view' );
+        wrapper.classList.add( "spelling" );
+        wordView.classList.add( "word-view" );
         wordView.innerText = word;
-
-        playBtn.classList.add( 'btn','play-btn' );
-        playBtn.innerText = 'Play';
+        playBtn.classList.add( "btn","play-btn" );
+        playBtn.innerText = "Play";
 
     }, words );
 
@@ -107,28 +103,16 @@
         if( !responsiveVoice.voiceSupport() ) return;
 
         var spellings = document.getElementsByClassName( "spelling" );
-        //console.log("Spellings ", spellings );
         R.forEach( function( spelling ){
-            //console.log("Spelling: ", spelling );
             var playBtns = spelling.getElementsByClassName( "play-btn" ),
                 text = spelling.getElementsByClassName( "word-view" )[0].innerText;
-            //console.log("Play Buttons = ", playBtns);
             R.forEach( function( playBtn ){
-                //console.log("Play Btn = ", playBtn);
-                playBtn.addEventListener( 'click', function(){
-                    //console.log("Play Btn Pressed " , text);
+                playBtn.addEventListener( "click", function(){
                     responsiveVoice.speak(text,"UK English Male");
-                })
+                });
             }, playBtns);
         }, spellings);
-    // if(responsiveVoice.voiceSupport()) {
-    //     var voicelist = responsiveVoice.getVoices();
-    //     console.log("VoiceList=",voicelist);
-    //     setTimeout(function(){
-    //         console.log("HELLO");
-    //         responsiveVoice.speak("Welcome to the Responsive Voice website");
-    //     },15000);
-    // }    
+ 
 });
     </script>
 
