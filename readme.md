@@ -9,6 +9,7 @@
     * Create new word list
     * Add words
     * ...
+* Read, check, then show - test
 * Mobilise
 
    
