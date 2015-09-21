@@ -1,0 +1,135 @@
+<html>
+
+<head>
+    <title>Spellings</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.17.1/ramda.min.js"></script>
+    <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+    <style>
+
+        * {
+            border-collapse: collapse;
+        }
+
+        .spelling {
+            position: relative;
+            height: 2em;
+            padding: 1em;
+            border: 1px solid black;
+            border-radius: 5px;
+            margin-bottom: 1em;
+        }
+
+        .btn {
+            float:right;
+            height: 100%;
+            width: 50px;
+            background-color: grey;
+            padding: 2px;
+            text-align: center;
+        }
+
+        .word-view {
+            font-family: Calibri;
+            font-size: 2em;
+            line-height: 2em;
+        }
+
+        .word-view:hover {
+            color: red;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <div id="display" class="words">
+
+    </div>
+    <script>
+    "use strict";
+    var words = [
+        "pewter",
+        "hour",
+        "environment",
+        "teacher's",
+        "there",
+        "crystals",
+        "friend",
+        "nastiness",
+        "rider's",
+        "their",
+        "Stonehenge",
+        "because",
+        "management",
+        "children's",
+        "they're",
+        "sedimentary",
+        "before",
+        "carelessness",
+        "people's",
+        "threw",
+        "permeable",
+        "watch",
+        "government",
+        "hospital's",
+        "through",
+        "Neolithic"
+    ],
+    wordDisplay = document.getElementById( 'display' );
+
+    R.forEach( function( word ){
+    
+
+
+        var wrapper = document.createElement( 'div' ),
+            wordView = document.createElement( 'span' ),
+            playBtn = document.createElement( 'span' );
+
+        console.log("Word -> ", word);
+        wordDisplay.appendChild( wrapper );
+        wrapper.appendChild( wordView );
+        wrapper.appendChild( playBtn );
+
+        wrapper.classList.add( 'spelling' );
+
+        wordView.classList.add( 'word-view' );
+        wordView.innerText = word;
+
+        playBtn.classList.add( 'btn','play-btn' );
+        playBtn.innerText = 'Play';
+
+    }, words );
+
+    $(document).ready( function(){
+        if( !responsiveVoice.voiceSupport() ) return;
+
+        var spellings = document.getElementsByClassName( "spelling" );
+        //console.log("Spellings ", spellings );
+        R.forEach( function( spelling ){
+            //console.log("Spelling: ", spelling );
+            var playBtns = spelling.getElementsByClassName( "play-btn" ),
+                text = spelling.getElementsByClassName( "word-view" )[0].innerText;
+            //console.log("Play Buttons = ", playBtns);
+            R.forEach( function( playBtn ){
+                //console.log("Play Btn = ", playBtn);
+                playBtn.addEventListener( 'click', function(){
+                    //console.log("Play Btn Pressed " , text);
+                    responsiveVoice.speak(text,"UK English Male");
+                })
+            }, playBtns);
+        }, spellings);
+    // if(responsiveVoice.voiceSupport()) {
+    //     var voicelist = responsiveVoice.getVoices();
+    //     console.log("VoiceList=",voicelist);
+    //     setTimeout(function(){
+    //         console.log("HELLO");
+    //         responsiveVoice.speak("Welcome to the Responsive Voice website");
+    //     },15000);
+    // }    
+});
+    </script>
+
+</body>
