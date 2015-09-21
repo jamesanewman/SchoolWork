@@ -48,72 +48,90 @@
     <div id="display" class="words">
 
     </div>
+
+    <script src="scripts/wordlists.js"></script>
+    <script src="scripts/words/display.js"></script>
     <script>
     "use strict";
-    var words = [
-        "pewter",
-        "hour",
-        "environment",
-        "teacher's",
-        "there",
-        "crystals",
-        "friend",
-        "nastiness",
-        "rider's",
-        "their",
-        "Stonehenge",
-        "because",
-        "management",
-        "children's",
-        "they're",
-        "sedimentary",
-        "before",
-        "carelessness",
-        "people's",
-        "threw",
-        "permeable",
-        "watch",
-        "government",
-        "hospital's",
-        "through",
-        "Neolithic"
-    ],
-    wordDisplay = document.getElementById( "display" );
+//     var words = [
+//         "pewter",
+//         "hour",
+//         "environment",
+//         "teacher's",
+//         "there",
+//         "crystals",
+//         "friend",
+//         "nastiness",
+//         "rider's",
+//         "their",
+//         "Stonehenge",
+//         "because",
+//         "management",
+//         "children's",
+//         "they're",
+//         "sedimentary",
+//         "before",
+//         "carelessness",
+//         "people's",
+//         "threw",
+//         "permeable",
+//         "watch",
+//         "government",
+//         "hospital's",
+//         "through",
+//         "Neolithic"
+//     ],
+//     wordDisplay = document.getElementById( "display" );
+//
+//     R.forEach( function( word ){
+//
+//         var wrapper = document.createElement( "div" ),
+//             wordView = document.createElement( "span" ),
+//             playBtn = document.createElement( "span" );
+//
+//         console.log("Word -> ", word);
+//         wordDisplay.appendChild( wrapper );
+//         wrapper.appendChild( wordView );
+//         wrapper.appendChild( playBtn );
+//
+//         wrapper.classList.add( "spelling" );
+//         wordView.classList.add( "word-view" );
+//         wordView.innerText = word;
+//         playBtn.classList.add( "btn","play-btn" );
+//         playBtn.innerText = "Play";
+//
+//         // Test
+//     }, words );
+//
+//     $(document).ready( function(){
+//         if( !responsiveVoice.voiceSupport() ) return ;
+//
+//         var spellings = document.getElementsByClassName( "spelling" );
+//         R.forEach( function( spelling ){
+//             var playBtns = spelling.getElementsByClassName( "play-btn" ),
+//                 text = spelling.getElementsByClassName( "word-view" )[0].innerText;
+//             R.forEach( function( playBtn ){
+//                 playBtn.addEventListener( "click", function(){
+//                     responsiveVoice.speak(text,"UK English Male");
+//                 });
+//             }, playBtns);
+//         }, spellings);
+//
+// });
 
-    R.forEach( function( word ){
+    Wordlist.getWordlists().then( function( wordlists ){
+        console.log("Word lists: ", wordlists );
+        var firstList = wordlists.lists[0].uri;
+        return Wordlist.getWordlist( firstList );
+    }).then( function( wordlist ){
+        console.log("Wordlist: ", wordlist );
+        return wordlist;
+    }).then( function( wordlist ){
+        var wd = new WordDisplay( 'display' );
+        console.log("Showing...",wd)
+        var out = wd.create( WordDisplay.simple, wordlist );
+        console.log("Output = ", out);
+    })
 
-        var wrapper = document.createElement( "div" ),
-            wordView = document.createElement( "span" ),
-            playBtn = document.createElement( "span" );
-
-        console.log("Word -> ", word);
-        wordDisplay.appendChild( wrapper );
-        wrapper.appendChild( wordView );
-        wrapper.appendChild( playBtn );
-
-        wrapper.classList.add( "spelling" );
-        wordView.classList.add( "word-view" );
-        wordView.innerText = word;
-        playBtn.classList.add( "btn","play-btn" );
-        playBtn.innerText = "Play";
-
-    }, words );
-
-    $(document).ready( function(){
-        if( !responsiveVoice.voiceSupport() ) return;
-
-        var spellings = document.getElementsByClassName( "spelling" );
-        R.forEach( function( spelling ){
-            var playBtns = spelling.getElementsByClassName( "play-btn" ),
-                text = spelling.getElementsByClassName( "word-view" )[0].innerText;
-            R.forEach( function( playBtn ){
-                playBtn.addEventListener( "click", function(){
-                    responsiveVoice.speak(text,"UK English Male");
-                });
-            }, playBtns);
-        }, spellings);
- 
-});
     </script>
-
 </body>
