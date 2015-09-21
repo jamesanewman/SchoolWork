@@ -2,6 +2,7 @@
 
     {
         "word": "enivronment",
+        "level": "diamond",
         "metrics": {
             "attempts": 4,
             "correct": 2
@@ -9,6 +10,7 @@
     },
     {
         "word": "pewter",
+        "level": "ruby",
         "metrics": {
             "attempts": 4,
             "correct": 2

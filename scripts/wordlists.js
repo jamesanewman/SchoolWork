@@ -9,14 +9,14 @@ var Wordlist = (function() {
 
     WL.getWordlists = function(){
         return $.getJSON( 'data/wordlist.json').then( function( wordlists ){
-            console.log("Word lists: ", wordlists);
+            //console.log("Word lists: ", wordlists);
             return wordlists;
         });
     };
 
     WL.getWordlist = function(uri){
         return $.getJSON( uri ).then( function( wordlist ){
-            console.log("Word list: ", wordlist);
+            //console.log("Word list: ", wordlist);
             return wordlist;
         });
     };

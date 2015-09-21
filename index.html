@@ -5,6 +5,9 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ramda/0.17.1/ramda.min.js"></script>
     <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.2/handlebars.js'></script>
+    <script src="scripts/templates.js"></script>
+
     <style>
 
         * {
@@ -119,19 +122,25 @@
 //
 // });
 
-    Wordlist.getWordlists().then( function( wordlists ){
-        console.log("Word lists: ", wordlists );
-        var firstList = wordlists.lists[0].uri;
-        return Wordlist.getWordlist( firstList );
-    }).then( function( wordlist ){
-        console.log("Wordlist: ", wordlist );
-        return wordlist;
-    }).then( function( wordlist ){
-        var wd = new WordDisplay( 'display' );
-        console.log("Showing...",wd)
-        var out = wd.create( WordDisplay.simple, wordlist );
-        console.log("Output = ", out);
+    // console.log("Templates: ", Templates);
+    Templates.loadTemplate( 'word-scoreboard','views/word-scoreboard.hbs' ).then( function(){
+        Wordlist.getWordlists().then( function( wordlists ){
+            // console.log("Word lists: ", wordlists );
+            var firstList = wordlists.lists[0].uri;
+            return Wordlist.getWordlist( firstList );
+        }).then( function( wordlist ){
+            console.log("Wordlist: ", wordlist );
+            return wordlist;
+        }).then( function( wordlist ){
+            var wd = new WordDisplay( 'display','word-scoreboard' );
+            wd.draw( wordlist );
+            // console.log("Showing...",wd)
+            // var out = wd.create( WordDisplay.simple, wordlist );
+            // console.log("Output = ", out);
+        })
+
     })
+
 
     </script>
 </body>
