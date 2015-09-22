@@ -1,5 +1,6 @@
 {
     "lists": [
-        { "id": 1, "description": "Ruby - easy", "uri": "data/list1.json" }
+        { "id": 1, "description": "Ruby - easy", "uri": "data/list1.json" },
+        { "id": 2, "description": "Ruby2 - easy", "uri": "data/list2.json" }
     ]
 }

@@ -1,0 +1,18 @@
+[
+  {
+    "word": "permeable",
+    "level": "ruby",
+    "metrics": {
+      "attempts": 0,
+      "correct": 0
+    }
+  },
+  {
+    "word": "therefore",
+    "level": "diamond",
+    "metrics": {
+      "attempts": 0,
+      "correct": 0
+    }
+  }
+]
