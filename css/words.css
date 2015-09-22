@@ -1,0 +1,9 @@
+/*
+    Word CSS, keep to key word features such as
+    'readable'.
+*/
+
+.readable {
+    font-size: 1.5em;
+    font-weight: bold;
+}

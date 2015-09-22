@@ -8,54 +8,34 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.2/handlebars.js'></script>
     <script src="scripts/templates.js"></script>
 
-    <style>
-
-        * {
-            border-collapse: collapse;
-        }
-
-        .spelling {
-            position: relative;
-            height: 2em;
-            padding: 1em;
-            border: 1px solid black;
-            border-radius: 5px;
-            margin-bottom: 1em;
-        }
-
-        .btn {
-            float:right;
-            height: 100%;
-            width: 50px;
-            background-color: grey;
-            padding: 2px;
-            text-align: center;
-        }
-
-        .word-view {
-            font-family: Calibri;
-            font-size: 2em;
-            line-height: 2em;
-        }
-
-        .word-view:hover {
-            color: red;
-        }
-    </style>
-
+    <link href="css/core.css" rel="stylesheet">
+    <link href="css/words.css" rel="stylesheet">
 
 </head>
 
 <body>
+    <nav class="horizontal">
+        <ul>
+            <li class="func-showScoreboard">Goto Scoreboard</li>
+            <li class="func-showPlaylist">Play</li>
+        </ul>
+    </nav>
 
     <div id="display" class="words">
 
     </div>
 
-    <script src="scripts/wordlists.js"></script>
+    <script src="scripts/words/wordlists.js"></script>
     <script src="scripts/words/display.js"></script>
+    <script src="scripts/main.js"></script>
     <script>
     "use strict";
+
+    $('.func-showPlaylist').on( 'click', showPlaylist);
+    $('.func-showScoreboard').on( 'click', showScoreboard);
+    // showScoreboard();
+
+
 //     var words = [
 //         "pewter",
 //         "hour",
@@ -123,23 +103,7 @@
 // });
 
     // console.log("Templates: ", Templates);
-    Templates.loadTemplate( 'word-scoreboard','views/word-scoreboard.hbs' ).then( function(){
-        Wordlist.getWordlists().then( function( wordlists ){
-            // console.log("Word lists: ", wordlists );
-            var firstList = wordlists.lists[0].uri;
-            return Wordlist.getWordlist( firstList );
-        }).then( function( wordlist ){
-            console.log("Wordlist: ", wordlist );
-            return wordlist;
-        }).then( function( wordlist ){
-            var wd = new WordDisplay( 'display','word-scoreboard' );
-            wd.draw( wordlist );
-            // console.log("Showing...",wd)
-            // var out = wd.create( WordDisplay.simple, wordlist );
-            // console.log("Output = ", out);
-        })
 
-    })
 
 
     </script>

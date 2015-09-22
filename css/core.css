@@ -1,0 +1,16 @@
+* {
+    border-collapse: collapse;
+    font-family: Calibri sans-serif;
+}
+
+nav.horizontal ul, nav.horizontal li {
+	margin: 0;
+	padding: 0.5em;
+}
+nav.horizontal ul {
+	list-style: none;
+	width: 100%;
+}
+nav.horizontal li {
+    display: inline-block;
+}

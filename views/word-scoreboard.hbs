@@ -11,6 +11,8 @@
 		border-bottom: 2px solid black;
 	}
 </style>
+
+<h1>{{info.description}}</h1>
 <table style="width:100%">
 	<col style="width:10%;text-align:right;">
 	<col style="width:50%;text-align:right;">
@@ -25,7 +27,7 @@
 	</thead>
 
 	<tbody>
-		{{#each this}}
+		{{#each words}}
 		<tr>
 			<td>{{level}}</td>
 			<td>{{word}}</td>
