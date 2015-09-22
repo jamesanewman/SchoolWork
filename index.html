@@ -8,20 +8,22 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.2/handlebars.js'></script>
     <script src="scripts/templates.js"></script>
 
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href="css/core.css" rel="stylesheet">
     <link href="css/words.css" rel="stylesheet">
 
 </head>
 
 <body>
-    <nav class="horizontal">
+    <nav class="nav-bar horizontal">
         <ul>
-            <li class="func-showScoreboard">Goto Scoreboard</li>
+            <li class="func-showScoreboard active">Goto Scoreboard</li>
             <li class="func-showPlaylist">Play</li>
         </ul>
     </nav>
 
-    <div id="display" class="words">
+
+    <div id="display" class="display-area">
 
     </div>
 
@@ -31,8 +33,15 @@
     <script>
     "use strict";
 
+    var $navControls = $( '.nav-bar li' );
+    $navControls.on( 'click' , function( ){
+        $navControls.removeClass('active');
+        $(this).addClass('active');
+    })
+
     $('.func-showPlaylist').on( 'click', showPlaylist);
     $('.func-showScoreboard').on( 'click', showScoreboard);
+
     // showScoreboard();
 
 
