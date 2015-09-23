@@ -23,6 +23,11 @@ var Templates = (function() {
 			return $.get( uri ).then( store );
 		}
 
+		instance.loadPartial = function( name, uri ){
+			var register = R.partial( registerPartial , name );
+			return $.get( uri ).then( register );
+		}
+
 		instance.runTemplate = function( name,data ){
 			// Need to change so run, loads and load stores a template object
 			// load becomes add...
@@ -36,6 +41,10 @@ var Templates = (function() {
 			return text;
 		}
 
+		function registerPartial( name,text ){
+			Handlebars.registerPartial(name, text);
+			return text;
+		}
 	};
 
 

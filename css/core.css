@@ -10,12 +10,20 @@ body {
 }
 
 nav {
-    background-color: #60646D;
+    background: #FFEB3B;
 	margin: 0;
 }
 
+section header {
+    background: #4CAF50;
+    height: 40px;
+    padding: 10px 0;
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+}
 .nav-bar {
-    height: 100px;
+    height: 60px;
 }
 
 nav.horizontal ul {
@@ -24,18 +32,17 @@ nav.horizontal ul {
 }
 nav.horizontal li {
     display: inline-block;
-    padding-bottom: 20px;
-    padding-top: 20px;
-    height: 60px;
+    height: 22px;
     width: 200px;
     text-align: center;
+    padding: 1em;
 }
 
 nav.horizontal li.active {
-    background-color: #ffffff;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    font-size: 1.4em;
+    background-color: #4CAF50;
+    /*border-top-left-radius: 10px;
+    border-top-right-radius: 10px;*/
+    font-size: 1.2em;
 }
 
 .ruby {
@@ -46,7 +53,7 @@ nav.horizontal li.active {
     color: rgb(185,242,255);
 }
 .display-area {
-    margin: 1em;
+    /*margin: 1em;*/
     height: 600px;
-    padding: 0 2em;
+    /*padding: 0 2em;*/
 }

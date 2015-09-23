@@ -24,6 +24,7 @@ function showPlaylist(){
         })
     })
 }
+
 function showScoreboard(){
     Templates.loadTemplate( 'word-scoreboard','views/word-scoreboard.hbs' ).then( function(){
         Wordlist.getWordlists().then( function( wordlists ){

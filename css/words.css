@@ -7,3 +7,55 @@
     font-size: 1.5em;
     font-weight: bold;
 }
+
+/* Should be part of core? */
+.focus {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.center {
+    margin: auto;
+}
+/*.level-ruby {
+    color: rgb(224, 17, 95);
+}
+
+.level-diamond {
+    color: rgb(185,242,255);
+}*/
+
+.grp {
+    position:relative;
+}
+
+.push-right-2 {
+    margin-left: 2em;
+}
+/* Word specific */
+.words-scores {
+    width: 400px;
+    margin:4em;
+
+    /*border: 1px solid black;
+    border-radius: 5px;*/
+    padding: 1em;
+    background: #FFF9C4;
+}
+
+.word-display {
+
+}
+
+.right {
+    float:right;
+}
+
+.word-grp {
+    margin-bottom: 5px;
+    color:  #21212
+
+}
+.word-grp span {
+    display: inline-block;
+}

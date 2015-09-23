@@ -1,41 +1,11 @@
-<div>
-<style>
-	td, th {
-		text-align: left;
-		font-size: 2em;
-		font-family: Calibri;
-	}
+<section class="scoreboard">
 
-	tr:nth-child(odd) {
-		border-top: 2px solid black;
-		border-bottom: 2px solid black;
-	}
-</style>
-
-<h1>{{info.description}}</h1>
-<table style="width:100%">
-	<col style="width:10%;text-align:right;">
-	<col style="width:50%;text-align:right;">
-	<col style="width:10%">
-
-	<thead>
-	<tr>
-		<th>Level</th>
-		<th>Word</th>
-		<th>Score</th>
-	</tr>
-	</thead>
-
-	<tbody>
+	<header>{{info.description}}</header>
+	<div class="words-scores">
 		{{#each words}}
-		<tr>
-			<td>{{level}}</td>
-			<td>{{word}}</td>
-			<td>{{metrics.correct}}/{{metrics.attempts}}</td>
-		</tr>
+			{{> word-scoreboard-summary this}}
 		{{/each}}
-	</tbody>
-</table>
+	</div>
 
 
 </div>

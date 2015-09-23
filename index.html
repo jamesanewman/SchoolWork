@@ -17,7 +17,7 @@
 <body>
     <nav class="nav-bar horizontal">
         <ul>
-            <li class="func-showScoreboard active">Goto Scoreboard</li>
+            <li class="func-showScoreboard">Goto Scoreboard</li>
             <li class="func-showPlaylist">Play</li>
         </ul>
     </nav>
@@ -42,6 +42,7 @@
     $('.func-showPlaylist').on( 'click', showPlaylist);
     $('.func-showScoreboard').on( 'click', showScoreboard);
 
+    Templates.loadPartial( 'word-scoreboard-summary', 'views/partials/_word-score-summary.hbs' );
     // showScoreboard();
 
 
