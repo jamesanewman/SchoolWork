@@ -1,0 +1,88 @@
+<html>
+
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="core.css">
+
+</head>
+<body>
+
+    <nav>
+        <div class="breadcrumbs">
+            <span class=breadcrumb><a href="home.html">Home</a></span>
+        </div>
+    </nav>
+
+    <aside class="selectors">
+
+        <section class="selector">
+            <header>Week 1</header>
+        </section>
+
+        <section class="selector active">
+            <header>Week 2</header>
+        </section>
+
+        <section class="selector">
+            <header>Week 3</header>
+        </section>
+
+        <section class="selector">
+            <header>Week 4</header>
+        </section>
+
+        <section class="selector">
+            <header>Week 5</header>
+        </section>
+
+    </aside>
+
+    <section class="main box-grp box-level-2">
+
+
+        <a href="spelling/list.html">
+            <article class="box">
+                <div>
+                    <header>List</header>
+                    <summary>- Word list</summary>
+                </div>
+            </article>
+        </a>
+
+        <a href="spelling/test.html">
+            <article class="box">
+                <div>
+                    <header>Test</header>
+                    <summary>- Test the word list</summary>
+                </div>
+            </article>
+        </a>
+
+    </section>
+
+<script>
+
+// Very simple selector mockup
+var selectors = document.getElementsByClassName( 'selectors' )[ 0 ];
+selectors.addEventListener( 'click', function(e){
+    console.log("E-",e);
+    var list = selectors.getElementsByClassName('selector'),
+        target = e.target;
+    
+    for( var i=0,len=list.length; i<len; i++ ){
+        list[ i ].classList.remove( 'active' );
+    }
+    console.log("XXX => ",e.target.classList);
+    if( !e.target.classList.contains('selector') ) target = e.target.parentElement;
+    target.classList.add( 'active' );
+
+});
+
+console.log("Selectors ",selectors);
+
+</script>
+
+
+
+</body>
+</html>

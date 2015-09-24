@@ -1,0 +1,164 @@
+    /* Color: http://www.colourlovers.com/palette/522193/Fired._Now_What */
+    * {
+    	box-sizing: border-box;
+    }
+
+    body {
+        margin: 0 0; 
+        max-width: 600px;
+        font-family: 'Open Sans Condensed', sans-serif;
+        /*color: #201D2D;*/
+        background: #B4E1A2;
+        color: #2A4A53;
+    }
+
+    .box-grp {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+
+    }
+
+    a { 
+    	color: inherit;
+        text-decoration: none;
+    }
+
+    .box {
+        position: relative;
+        margin: 2px;
+        width: 240px;  /* Multiples 240, 200, 160, 120, ... visual hierachy */
+        height: 240px; /* Or whatever */
+        background-color: #418283;
+
+/*        background: #72BBA3;
+        border: 1px solid #2A4A53;
+*/
+    }
+
+    .box-level-2 .box {
+        width: 200px;
+        height: 200px;
+    }
+
+    .box div {
+        position: absolute;
+        /* Horizontal center */
+        /* Vertical Center */
+        top:50%;
+        /* Make it work */
+        transform: translate(-50%, -50%);
+
+        left:50%;
+    }
+
+    /* WTF? http://www.w3.org/Style/Examples/007/center.en.html */
+    .box header {
+        font-size: 18pt;
+        font-weight: bold;
+
+    }
+
+    .box summary {
+        font-style: italic;
+    }
+
+    nav {
+        position: relative;
+        width: 100%;
+        height: 60px;
+        /*margin-bottom: 4px;*/
+        background-color: #418283;
+    }
+
+    .breadcrumbs {
+        position:absolute;
+        display:inline-block;
+        font-size: 24px;
+        font-weight: bold;
+        top:50%;
+        /* Make it work */
+        transform: translate(0%, -50%);
+        padding-left: 1em;
+    }
+
+    .breadcrumb:before {
+        content: "/";
+    } 
+
+    aside {
+        float: left;
+        width: 120px;
+    }
+
+    .selector {
+        height: 60px;
+        width: 100%;
+        background: #418283;
+        padding-left: 4px;
+    }
+
+    .selector:nth-child(odd) {
+        background: #72BBA3;
+    }
+
+    .selector header {
+        position: relative;
+        top:50%;
+        /* Make it work */
+        transform: translate(0%, -50%);
+        font-weight: bold;        
+    }
+
+    .selector.active {
+        background: #B4E1A2;
+    }
+
+    .list {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+
+    .list-entry {
+        position: relative;
+        margin: 2px;
+        width: 160px;  /* Multiples 240, 200, 160, 120, ... visual hierachy */
+        height: 60px;
+        background: #418283;
+        padding-left: 1em;
+    }
+
+    .list-entry:nth-child(odd) {
+        background: #72BBA3;
+    }
+
+    .list-entry:nth-child(even) {
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+    }
+
+    .list-entry .word {
+        position:absolute;
+        top:50%;
+        /* Make it work */
+        transform: translate(0%, -50%);
+    }
+
+    span.word {
+    }
+    .word {
+        font-weight: bold;
+        font-size: 1.5em;
+    }
+
+    .passed:after {
+        display: inline-block;
+        content:"A";
+        width: 1em;
+        background-image: url('../images/tick.svg')
+    }
