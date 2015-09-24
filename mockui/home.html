@@ -1,0 +1,84 @@
+<html>
+
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+    <style>
+    /* Color: http://www.colourlovers.com/palette/522193/Fired._Now_What */
+    * {
+    box-sizing: border-box;
+    }
+
+    body {
+        height: 100%;
+        border:1px solid red;
+        margin: 0 auto;
+
+        max-width: 600px;
+        font-family: 'Open Sans Condensed', sans-serif;
+        color:#201D2D;
+    }
+
+    .box-grp {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        background: #B4E1A2;
+        width: 100%;
+        height: 100%;
+    }
+
+    .box {
+
+        position: relative;
+        margin: 2px;
+        width: 200px;  /* Or whatever */
+        height: 300px; /* Or whatever */
+        background: #72BBA3;
+
+        border: 1px solid #2A4A53;
+        color: white;
+    }
+
+    /* WTF? http://www.w3.org/Style/Examples/007/center.en.html */
+    .box header {
+        font-size: 18pt;
+        position: absolute;
+        /* Horizontal center */
+        margin-right: -50%;
+        left: 50%;
+        /* Vertical Center */
+        top:50%;
+        /* Make it work */
+        transform: translate(-50%, -50%);
+        font-weight: bold;
+
+    }
+    </style>
+
+
+</head>
+<body>
+
+    <section class="box-grp">
+
+        <article class="box">
+            <header>Article 1</header>
+        </article>
+
+
+        <article class="box">
+            <header>Article 1</header>
+        </article>
+        <article class="box">
+            <header>Article 1</header>
+        </article>
+        <article class="box">
+            <header>Article 1</header>
+        </article>
+
+    </section>
+
+</body>
+</html>
